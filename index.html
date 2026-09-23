@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pengumuman Kelulusan FORPRAS JATIM GEN 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --red:#E20F28; --blue:#099BC7; --yellow:#FFD45A; --navy:#18345F; box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: env(safe-area-inset-top,0px); }
+    body { font-family:"Work Sans", Arial, sans-serif; margin:0; background: rgb(24,52,95); }
+    .display-font { font-family:"Fraunces", Georgia, serif; }
+    .poster-bg { position:relative; width:100%; min-height:100vh; overflow-x:hidden; }
+    .poster-bg::before {
+      content:""; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background-image: url('background.png');
+      background-size: cover; background-position: center top; background-repeat: no-repeat;
+    }
+    .poster-bg::after {
+      content:""; position:absolute; inset:0; pointer-events:none; z-index:1;
+      background: linear-gradient(180deg, rgba(24,52,95,.35) 0%, rgba(24,52,95,.55) 60%, rgba(24,52,95,.75) 100%);
+    }
+    .content-layer { position:relative; z-index:2; }
+    .glass-card {
+      background:rgba(255,255,255,.93);
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow:0 24px 65px rgba(12,30,67,.32);
+      backdrop-filter:blur(12px);
+    }
+    .field-input {
+      width:100%; border:2px solid #d9e2ef; border-radius:14px; padding:.9rem 1rem .9rem 2.8rem;
+      color:var(--navy); background:#fff; outline:none; transition:.2s ease; font-size:16px;
+    }
+    .field-input:focus { border-color:var(--blue); box-shadow:0 0 0 4px rgba(9,155,199,.16); }
+    .field-wrap { position:relative; }
+    .field-wrap svg { position:absolute; left:.95rem; top:50%; transform:translateY(-50%); color:var(--blue); width:19px; height:19px; }
+    .cta {
+      background:var(--red); color:#fff; box-shadow:0 12px 25px rgba(226,15,40,.27); border:none; cursor:pointer;
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .cta:hover { background:#bd0c21; transform:translateY(-2px); box-shadow:0 16px 28px rgba(226,15,40,.34); }
+    button { font-family:inherit; cursor:pointer; }
+    button:focus-visible, a:focus-visible, input:focus-visible { outline:3px solid var(--yellow); outline-offset:3px; }
+    .music-panel { animation:rise .45s cubic-bezier(.2,.8,.2,1) both; }
+    .result-enter { animation:rise .55s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes rise { from { opacity:0; transform:translateY(22px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    .header-enter { animation:fadeDown .7s ease both; }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+    .confetti { position:fixed; top:-18px; width:10px; height:16px; z-index:40; pointer-events:none; animation:fall 2.8s linear forwards; }
+    @keyframes fall { to { transform:translate(var(--x), 100vh) rotate(720deg); opacity:0; } }
+    .status-pass { background:linear-gradient(135deg, #0b9bc5, #18345f); color:#fff; }
+    .status-fail { background:#fff0f1; color:#b00d21; border:1px solid #ffc6cd; }
+    .result-message { white-space:pre-line; line-height:1.75; }
+    .hidden { display:none !important; }
+    .wrap { max-width:42rem; margin:0 auto; width:100%; }
+    .rounded-28 { border-radius:28px; }
+    @media (max-width:640px) { .hero-title { font-size:2.65rem !important; } }
+  </style>
+</head>
+<body>
+<div class="poster-bg">
+  <div class="content-layer" style="display:flex; min-height:100vh; width:100%; flex-direction:column;">
+   <header style="width:100%; padding:2.5rem 1.25rem 0; text-align:center;">
+    <div class="header-enter wrap">
+     <span style="display:inline-flex; align-items:center; gap:.5rem; border-radius:9999px; padding:.5rem 1rem; font-size:14px; font-weight:800; background:#FFD45A; color:#18345F;">✔ PENGUMUMAN RESMI</span>
+     <h1 class="display-font hero-title" style="margin-top:1.25rem; font-size:59px; font-weight:900; line-height:1; letter-spacing:-0.02em; color:#fff;">PENGUMUMAN</h1>
+     <p style="margin-top:.5rem; font-size:32px; font-weight:800; letter-spacing:0.08rem; color:#fff;">FORPRAS JATIM GEN 3</p>
+     <p style="margin-top:1.25rem; font-size:18px; font-weight:500; color:rgba(255,255,255,.9);">Cek hasil seleksi kamu di sini</p>
+    </div>
+   </header>
+   <main style="width:100%; flex:1; padding:2rem 1.25rem 2.5rem;">
+    <section class="glass-card wrap rounded-28" style="margin-bottom:1.75rem; padding:1.5rem;">
+     <h2 style="font-size:24px; font-weight:800; color:#18345F; margin:0;">Bagaimana perasaanmu sebelum melihat hasil seleksi?</h2>
+     <div style="margin-top:1.25rem; display:grid; gap:.75rem; grid-template-columns:1fr 1fr;">
+      <button id="nervous-button" style="border-radius:12px; background:#18345F; padding:1rem 1.25rem; font-size:14px; font-weight:800; color:#fff; border:none;">Gugup</button>
+      <button id="calm-button" style="border-radius:12px; border:2px solid #18345F; background:#fff; padding:1rem 1.25rem; font-size:14px; font-weight:800; color:#18345F;">Tidak gugup</button>
+     </div>
+     <p id="emotion-response" class="hidden" aria-live="polite" style="margin-top:1.25rem; border-radius:12px; background:#eff6ff; padding:.75rem 1rem; font-size:14px; font-weight:600; color:#18345F;"></p>
+     <div id="music-panel" class="music-panel" style="margin-top:1.25rem; border-radius:16px; background:#fffbeb; padding:1rem; text-align:center;" aria-live="polite">
+      <p style="font-size:14px; font-weight:600; color:#18345F; margin:0;">Biar lebih santai, sambil dengerin lagu ini yuk 🎵</p>
+      <p style="margin-top:.25rem; font-size:12px; color:#7a6a2e;">HIVI! – Satu-Satunya (Instrumental)</p>
+      <button id="music-button" type="button" style="margin-top:.75rem; display:inline-flex; align-items:center; justify-content:center; gap:.4rem; border-radius:12px; background:#E20F28; padding:.75rem 1.25rem; font-size:14px; font-weight:800; color:#fff; border:none;" aria-label="Putar musik" aria-pressed="false">
+        <span id="music-play-label">▶ Putar Musik</span>
+        <span id="music-pause-label" class="hidden">❚❚ Jeda Musik</span>
+      </button>
+      <audio id="bg-audio" loop preload="none" src="song.mp3"></audio>
+     </div>
+    </section>
+    <section id="form-card" class="glass-card wrap rounded-28" style="padding:1.5rem;">
+     <div style="margin-bottom:1.75rem;">
+      <h2 style="font-size:24px; font-weight:800; color:#18345F; margin:0;">Periksa hasil seleksimu</h2>
+      <p style="margin-top:.5rem; line-height:1.5; color:#475569; font-size:16px;">Masukkan data sesuai pendaftaran. Ketiga data perlu cocok untuk menampilkan hasil.</p>
+     </div>
+     <form id="selection-form" novalidate>
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+       <div>
+        <label style="margin-bottom:.5rem; display:block; font-size:14px; font-weight:700; color:#18345F;" for="full-name">Nama lengkap</label>
+        <div class="field-wrap"><input id="full-name" class="field-input" type="text" autocomplete="name" required></div>
+       </div>
+       <div>
+        <label style="margin-bottom:.5rem; display:block; font-size:14px; font-weight:700; color:#18345F;" for="institution">Asal instansi</label>
+        <div class="field-wrap"><input id="institution" class="field-input" type="text" required></div>
+       </div>
+       <div>
+        <label style="margin-bottom:.5rem; display:block; font-size:14px; font-weight:700; color:#18345F;" for="region">Asal daerah / kota/kabupaten</label>
+        <div class="field-wrap"><input id="region" class="field-input" type="text" required></div>
+       </div>
+      </div>
+      <p id="error-message" class="hidden" role="alert" style="margin-top:1.25rem; border-radius:12px; background:#fef2f2; padding:.75rem 1rem; font-size:14px; font-weight:600; color:#B00D21;"></p>
+      <div style="margin-top:1.75rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+       <button class="cta" type="submit" style="flex:1; min-width:160px; border-radius:12px; padding:1rem 1.25rem; font-size:14px; font-weight:800; letter-spacing:.03rem;">✨ CEK HASIL SELEKSI</button>
+       <button id="reset-button" type="button" style="border-radius:12px; border:2px solid #18345F; background:#fff; padding:1rem 1.5rem; font-size:14px; font-weight:800; color:#18345F;">RESET</button>
+      </div>
+     </form>
+    </section>
+    <section id="result-card" class="glass-card wrap rounded-28 hidden" style="margin-top:1.75rem; padding:1.5rem;" aria-live="polite" aria-atomic="true">
+     <div id="result-status" style="border-radius:16px; padding:1rem 1.25rem; text-align:center; font-size:20px; font-weight:800; letter-spacing:.02rem;"></div>
+     <div id="result-details" class="hidden" style="margin-top:1.5rem;">
+      <div style="display:grid; gap:.75rem; grid-template-columns:1fr 1fr;">
+       <div style="border-radius:16px; background:#f8fafc; padding:1rem; grid-column:1 / -1;">
+        <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin:0;">Nama peserta</p>
+        <p id="result-name" style="margin-top:.25rem; font-weight:800; color:#18345F;"></p>
+       </div>
+       <div style="border-radius:16px; background:#eff6ff; padding:1rem;">
+        <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin:0;">Divisi</p>
+        <p id="result-division" style="margin-top:.25rem; font-weight:800; color:#099BC7;"></p>
+       </div>
+       <div style="border-radius:16px; background:#fffbeb; padding:1rem;">
+        <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin:0;">Asal instansi</p>
+        <p id="result-institution" style="margin-top:.25rem; font-weight:700; color:#18345F;"></p>
+       </div>
+       <div style="border-radius:16px; background:#f8fafc; padding:1rem; grid-column:1 / -1;">
+        <p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#64748b; margin:0;">Asal daerah</p>
+        <p id="result-region" style="margin-top:.25rem; font-weight:700; color:#18345F;"></p>
+       </div>
+      </div>
+     </div>
+     <p id="result-message" class="result-message" style="margin-top:1.5rem; border-radius:16px; background:rgba(255,255,255,.8); padding:1.25rem; font-size:15px; color:#18345F;"></p>
+     <a id="whatsapp-button" href="https://chat.whatsapp.com/J9kYikJAEiGGg4Iek5wxq5" target="_blank" rel="noopener noreferrer" class="hidden" style="margin-top:1.5rem; align-items:center; justify-content:center; gap:.5rem; border-radius:12px; padding:1rem 1.25rem; text-align:center; font-size:14px; font-weight:800; letter-spacing:.02rem; background:#099BC7; color:#fff; text-decoration:none;">💬 GABUNG GRUP WHATSAPP</a>
+    </section>
+   </main>
+   <footer style="width:100%; padding:0 1.25rem 1.75rem; text-align:center;">
+    <p style="font-size:14px; font-weight:500; color:rgba(255,255,255,.85); margin:0;">FORPRAS JATIM GEN 3 • Terima kasih telah berpartisipasi</p>
+   </footer>
+  </div>
+</div>
+<script>
+    const participants = [
+      ["DAVINA LINTANK NARESWATI","SMA NEGERI TARUNA NALA JAWA TIMUR","KOTA MALANG","HRD"],
+      ["FA AISSYA RIZQINA ANJANI","MAN 2 KOTA MALANG","KOTA MALANG","HRD"],
+      ["SHAFA GADIZA DIANA","SMA NEGERI TARUNA NALA JAWA TIMUR","KABUPATEN MOJOKERTO","HRD"],
+      ["KHANSA MAYLAN NISA","SMA NEGERI 1 MOJOSARI","KABUPATEN MOJOKERTO","HRD"],
+      ["ANDREAS JONA GINTING","SMAS KRISTEN PETRA 4","KABUPATEN SIDOARJO","HRD"],
+      ["MADINA SAFIRA HARIYONO","SMA NEGERI 4 PROBOLINGGO","KOTA PROBOLINGGO","HRD"],
+      ["ZADOL","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","HRD"],
+      ["SILBIYAH ZUYAJ MILAHY","MAN KOTA MOJOKERTO","KABUPATEN MOJOKERTO","HRD"],
+      ["SAUQIYAH RUHAINAH NAJAH","SMA NEGERI 1 KREMBUNG","KABUPATEN SIDOARJO","HRD"],
+      ["ANDRA FATHUR BRILIANSYAH","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","P3S"],
+      ["EVELLYN FLORENSIANNE NIKKITA","SMA NEGERI 1 WARU","KABUPATEN SIDOARJO","P3S"],
+      ["KEVIN BENEDICT TEDJODIHARDJO","SMA NEGERI 6 SURABAYA","KOTA SURABAYA","P3S"],
+      ["SEVA JULI AMBARSARI","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","P3S"],
+      ["FATIMAH","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","P3S"],
+      ["ZAHRA AFIFA MASHURIYAH","SMA NEGERI 1 MOJOSARI","KABUPATEN MOJOKERTO","P3S"],
+      ["ASYSYIFA CARISSA PARSETIYO","SMA NEGERI 21 SURABAYA","KOTA SURABAYA","P3S"],
+      ["JONATHAN RISKI EVANO","SMA NEGERI 4 SURABAYA","KOTA SURABAYA","P3S"],
+      ["MARLON FAUZI ALTHEA","SMA ISLAM SABILILLAH MALANG","KOTA MALANG","P3S"],
+      ["KHANSA ZHAFIRA NAZMI","MAN 2 KOTA MALANG","KABUPATEN BOJONEGORO","P3S"],
+      ["ANGELA JEAN CAMINO PURBA","NOLA SCHOOL","KOTA SURABAYA","PUBLIC RELATION"],
+      ["ATMADEVAN JANASUTHA PURWANTO","SMA NEGERI 1 MOJOSARI","KABUPATEN MOJOKERTO","PUBLIC RELATION"],
+      ["NESSA AVARIELLA .A.","SMA SANTA MARIA","KOTA MALANG","PUBLIC RELATION"],
+      ["MARSHA REZA ROSALINA","SMA NEGERI 11 SURABAYA","KOTA SURABAYA","PUBLIC RELATION"],
+      ["AIXA MARDHANA QUEENAYLA","SMA NEGERI 1 WARU","KABUPATEN SIDOARJO","PUBLIC RELATION"],
+      ["NAJMA ZUKHRUFA SELMIDYA","SMA NEGERI 4 MALANG","KABUPATEN MALANG","PUBLIC RELATION"],
+      ["RIDHA AULIA FARA","SMA NEGERI 1 SIDOARJO","KABUPATEN SIDOARJO","PUBLIC RELATION"],
+      ["MOH ISAM ARZAQ","SMA NEGERI 7 SURABAYA","KOTA SURABAYA","PUBLIC RELATION"],
+      ["GABRIEL PRISCILLA SUCIPTO","SMP MANDALA SURABAYA","KOTA SURABAYA","PUBLIC RELATION"],
+      ["NADYA NAJMI PUTRI DEWANTI","SMA ANTARTIKA SIDOARJO","KABUPATEN SIDOARJO","PUBLIC RELATION"],
+      ["MIZAN HISYAMUDDIN AHMAD","SMA MBS AL AMIN RELIGI BOJONEGORO","KABUPATEN BOJONEGORO","KELAS"],
+      ["NINDYA HIRA NUR RAMADHANI","SMA NEGERI 1 BATU","KOTA BATU","KELAS"],
+      ["YOHANNA MILLATI FAUZIAH","SMA NEGERI 1 NGANJUK","KABUPATEN NGANJUK","KELAS"],
+      ["AFRADEA QUEENSIA DESIRE PUTRI","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","KELAS"],
+      ["RISKA INDHI RAHNA","SMA NEGERI 3 KOTA BLITAR","KOTA BLITAR","KELAS"],
+      ["DEVINA SAFARA","SMA NEGERI 9 SURABAYA","KOTA SURABAYA","KELAS"],
+      ["RIZKY FAIRUS ARISANDI","SMA NEGERI 1 TAMAN","KABUPATEN SIDOARJO","KELAS"],
+      ["JESICCA GENDIS ARIBY PURWANTO","SMA NEGERI 1 SOOKO","KABUPATEN MOJOKERTO","KELAS"],
+      ["RIANDINI PUTRI ROFIQI","SMK NEGERI 1 BANGIL","KABUPATEN PASURUAN","KELAS"],
+      ["NAILA ZAFIRA","SMP NEGERI 4 BOJONEGORO","KABUPATEN BOJONEGORO","KELAS"],
+      ["ROSINTA BELLA EKA MARCHELIA","UNIVERSITAS NEGERI SURABAYA","KABUPATEN GRESIK","KELAS"],
+      ["SHEZA CANDRA KIRANA","SMA NEGERI 21 SURABAYA","KOTA SURABAYA","MEDIA"],
+      ["ANABELLA CLARINTA NURIL KUSUMA","SMA NEGERI 4 SURABAYA","KOTA SURABAYA","MEDIA"],
+      ["JAVELINE ARIELLA LOVELY","SMA KATOLIK ST.LOUIS 2","KOTA SURABAYA","MEDIA"],
+      ["SHAVIRA SALSABILA EKAPUTRI","SMA NEGERI 1 KEBOMAS","KABUPATEN GERSIK","MEDIA"],
+      ["MUHAMMAD GILANG HADI PUTRA","UNIVERSITAS NEGERI MALANG","KABUPATEN SIDOARJO","MEDIA"],
+      ["MUHAMMAD ERDIAS PRADANA CAYONO","SMA NEGERI 9 SURABAYA","KABUPATEN SIDOARJO","MEDIA"],
+      ["NAILA NUR AZIZAH","SMK NEGERI 1 TANJUNGANOM","KABUPATEN NGANJUK","MEDIA"]
+    ];
+
+    const passMessage = (division) => `🎉 CONGRATULATIONS! 🎉
+
+Selamat kepada seluruh peserta yang telah lolos seleksi dan resmi menjadi bagian dari FORPRAS JATIM GEN 3 DIVISI ${division}! 🤍
+
+Terima kasih atas semangat, usaha, dan antusiasme yang telah diberikan selama proses seleksi. Perjalanan baru akan segera dimulai! ✨
+
+Semoga ke depannya kita bisa tumbuh, belajar, berproses, dan berkontribusi bersama untuk menciptakan pengalaman serta cerita yang luar biasa.
+
+Sekali lagi, selamat dan selamat bergabung! 🫶🏻
+Let's grow and make an impact together! 🚀`;
+
+    const failMessage = `💌 THANK YOU FOR YOUR PARTICIPATION
+
+Terima kasih kepada seluruh peserta yang telah mengikuti rangkaian proses seleksi FORPRAS JATIM GEN 3 dengan penuh semangat dan antusiasme. 🤍
+
+Setelah melalui proses seleksi, kami menyampaikan bahwa kamu belum berkesempatan untuk bergabung pada periode ini.
+
+Jangan berkecil hati, karena belum lolos kali ini bukan berarti perjalananmu berhenti sampai di sini. Tetap semangat untuk terus belajar, berkembang, dan mencoba kesempatan-kesempatan lainnya. ✨
+
+Terima kasih sudah menjadi bagian dari proses ini.
+See you on another opportunity! 🫶🏻`;
+
+    const normalize = (value) => value.trim().replace(/\s+/g, " ").toLocaleLowerCase("id-ID");
+    const form = document.getElementById("selection-form");
+    const nameInput = document.getElementById("full-name");
+    const institutionInput = document.getElementById("institution");
+    const regionInput = document.getElementById("region");
+    const errorMessage = document.getElementById("error-message");
+    const resultCard = document.getElementById("result-card");
+    const status = document.getElementById("result-status");
+    const details = document.getElementById("result-details");
+    const whatsapp = document.getElementById("whatsapp-button");
+    const emotionResponse = document.getElementById("emotion-response");
+    const musicPanel = document.getElementById("music-panel");
+    const musicButton = document.getElementById("music-button");
+    const bgAudio = document.getElementById("bg-audio");
+    const playLabel = document.getElementById("music-play-label");
+    const pauseLabel = document.getElementById("music-pause-label");
+    musicButton.addEventListener("click", async () => {
+      if (bgAudio.paused) {
+        try {
+          await bgAudio.play();
+          playLabel.classList.add("hidden");
+          pauseLabel.classList.remove("hidden");
+          musicButton.setAttribute("aria-pressed", "true");
+        } catch (err) {
+          console.error("Gagal memutar audio:", err);
+        }
+      } else {
+        bgAudio.pause();
+        pauseLabel.classList.add("hidden");
+        playLabel.classList.remove("hidden");
+        musicButton.setAttribute("aria-pressed", "false");
+      }
+    });
+    let formUnlocked = false;
+
+    function unlockForm() {
+      if (!formUnlocked) {
+        formUnlocked = true;
+        const formCard = document.getElementById("form-card");
+        formCard.classList.remove("hidden");
+        setTimeout(() => formCard.scrollIntoView({ behavior:"smooth", block:"start" }), 250);
+      }
+    }
+
+    function chooseFeeling(message) {
+      emotionResponse.textContent = message;
+      emotionResponse.classList.remove("hidden");
+      musicPanel.classList.remove("hidden");
+      unlockForm();
+    }
+    document.getElementById("nervous-button").addEventListener("click", () => chooseFeeling("Tenang, kamu sudah melakukan yang terbaik. Tarik napas dulu, ya."));
+    document.getElementById("calm-button").addEventListener("click", () => chooseFeeling("Mantap! Semoga hasilnya sesuai harapanmu."));
+
+    function launchConfetti() {
+      document.querySelectorAll(".confetti").forEach(el => el.remove());
+      ["#E20F28","#099BC7","#FFD45A","#FFFFFF"].forEach((color, colorIndex) => {
+        for (let i = 0; i < 16; i++) {
+          const piece = document.createElement("span");
+          piece.className = "confetti";
+          piece.style.background = color;
+          piece.style.left = `${(i * 6.2 + colorIndex * 1.5) % 100}%`;
+          piece.style.setProperty("--x", `${-110 + Math.random() * 220}px`);
+          piece.style.animationDelay = `${Math.random() * .45}s`;
+          piece.style.borderRadius = i % 2 ? "50%" : "2px";
+          piece.addEventListener("animationend", () => piece.remove(), { once:true });
+          document.body.appendChild(piece);
+        }
+      });
+    }
+
+    function showResult(match) {
+      resultCard.classList.remove("hidden", "result-enter");
+      void resultCard.offsetWidth;
+      resultCard.classList.add("result-enter");
+      if (match) {
+        status.textContent = "✓ LOLOS";
+        status.className = "status-pass";
+        status.style.borderRadius = "16px"; status.style.padding = "1rem 1.25rem"; status.style.textAlign="center"; status.style.fontSize="20px"; status.style.fontWeight="800";
+        details.classList.remove("hidden");
+        document.getElementById("result-name").textContent = match[0];
+        document.getElementById("result-institution").textContent = match[1];
+        document.getElementById("result-region").textContent = match[2];
+        document.getElementById("result-division").textContent = match[3];
+        document.getElementById("result-message").textContent = passMessage(match[3]);
+        whatsapp.classList.remove("hidden");
+        whatsapp.style.display = "inline-flex";
+        launchConfetti();
+      } else {
+        status.textContent = "BELUM LOLOS";
+        status.className = "status-fail";
+        status.style.borderRadius = "16px"; status.style.padding = "1rem 1.25rem"; status.style.textAlign="center"; status.style.fontSize="20px"; status.style.fontWeight="800";
+        details.classList.add("hidden");
+        document.getElementById("result-message").textContent = failMessage;
+        whatsapp.classList.add("hidden");
+        whatsapp.style.display = "none";
+      }
+      setTimeout(() => resultCard.scrollIntoView({ behavior:"smooth", block:"nearest" }), 80);
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = normalize(nameInput.value);
+      const institution = normalize(institutionInput.value);
+      const region = normalize(regionInput.value);
+
+      if (!name || !institution || !region) {
+        errorMessage.textContent = "Mohon lengkapi nama, asal instansi, dan asal daerah terlebih dahulu.";
+        errorMessage.classList.remove("hidden");
+        resultCard.classList.add("hidden");
+        return;
+      }
+
+      errorMessage.classList.add("hidden");
+      const match = participants.find(item =>
+        normalize(item[0]) === name &&
+        normalize(item[1]) === institution &&
+        normalize(item[2]) === region
+      );
+      showResult(match);
+    });
+
+    document.getElementById("reset-button").addEventListener("click", () => {
+      form.reset();
+      errorMessage.classList.add("hidden");
+      resultCard.classList.add("hidden");
+      document.querySelectorAll(".confetti").forEach(el => el.remove());
+      nameInput.focus();
+    });
+</script>
+</body></html>
