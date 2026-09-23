@@ -86,7 +86,7 @@
       <audio id="bg-audio" loop preload="none" src="song.mp3"></audio>
      </div>
     </section>
-    <section id="form-card" class="glass-card wrap rounded-28" style="padding:1.5rem;">
+    <section id="form-card" class="glass-card wrap rounded-28 hidden" style="padding:1.5rem;">
      <div style="margin-bottom:1.75rem;">
       <h2 style="font-size:24px; font-weight:800; color:#18345F; margin:0;">Periksa hasil seleksimu</h2>
       <p style="margin-top:.5rem; line-height:1.5; color:#475569; font-size:16px;">Masukkan data sesuai pendaftaran. Ketiga data perlu cocok untuk menampilkan hasil.</p>
@@ -233,6 +233,17 @@ See you on another opportunity! 🫶🏻`;
     const bgAudio = document.getElementById("bg-audio");
     const playLabel = document.getElementById("music-play-label");
     const pauseLabel = document.getElementById("music-pause-label");
+    let formUnlocked = false;
+
+    function unlockForm() {
+      if (!formUnlocked) {
+        formUnlocked = true;
+        const formCard = document.getElementById("form-card");
+        formCard.classList.remove("hidden");
+        setTimeout(() => formCard.scrollIntoView({ behavior:"smooth", block:"start" }), 250);
+      }
+    }
+
     musicButton.addEventListener("click", async () => {
       if (bgAudio.paused) {
         try {
@@ -249,23 +260,13 @@ See you on another opportunity! 🫶🏻`;
         playLabel.classList.remove("hidden");
         musicButton.setAttribute("aria-pressed", "false");
       }
+      unlockForm();
     });
-    let formUnlocked = false;
-
-    function unlockForm() {
-      if (!formUnlocked) {
-        formUnlocked = true;
-        const formCard = document.getElementById("form-card");
-        formCard.classList.remove("hidden");
-        setTimeout(() => formCard.scrollIntoView({ behavior:"smooth", block:"start" }), 250);
-      }
-    }
 
     function chooseFeeling(message) {
       emotionResponse.textContent = message;
       emotionResponse.classList.remove("hidden");
       musicPanel.classList.remove("hidden");
-      unlockForm();
     }
     document.getElementById("nervous-button").addEventListener("click", () => chooseFeeling("Tenang, kamu sudah melakukan yang terbaik. Tarik napas dulu, ya."));
     document.getElementById("calm-button").addEventListener("click", () => chooseFeeling("Mantap! Semoga hasilnya sesuai harapanmu."));
